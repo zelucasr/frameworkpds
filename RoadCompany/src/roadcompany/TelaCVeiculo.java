@@ -47,7 +47,7 @@ public class TelaCVeiculo { //LAYOUT 2
          CadastroVeiculo.setLayout(null);
          CadastroVeiculo.setPreferredSize(new java.awt.Dimension(800, 600));
          CadastroVeiculo.setSize(800, 600);
-         busao.setIcon(new javax.swing.ImageIcon("C:\\Users\\CH1CO\\Desktop\\Git\\frameworkpds\\frameworkpds\\RoadCompany\\src\\roadcompany\\img\\busao.jpg"));
+         busao.setIcon(new javax.swing.ImageIcon("C:\\Users\\CH1CO\\Desktop\\Git\\frameworkpds\\frameworkpds\\RoadCompany\\src\\img\\busao.jpg"));
          CadastroVeiculo.add(busao);
          busao.setBounds(646, 466, 154, 134);
          CadastroVeiculo.add(btBack);
