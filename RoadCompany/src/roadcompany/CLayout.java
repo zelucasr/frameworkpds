@@ -1,4 +1,3 @@
-
 package roadcompany;
 
 import java.awt.CardLayout;
@@ -14,8 +13,9 @@ import javax.swing.JTextField;
     Layouts:
     1-TelaPrincipal
     2-CadastroVeiculo
-    3-CadastroMotorista
-    4-
+    3-CadastroCliente
+    4-CadastroMotorista
+    5-
 */
 
 public class CLayout {
@@ -23,29 +23,31 @@ public class CLayout {
         JPanel panelCont = new JPanel();
         CardLayout c1 = new CardLayout();
         
-        CVeiculoLayout telaCVeiculo = new CVeiculoLayout();
+        TelaCVeiculo telaCVeiculo = new TelaCVeiculo();
         TelaPrincipal telaPrincipal = new TelaPrincipal();
+        TelaCCliente telaCCliente = new TelaCCliente();
+        TelaCMotorista telaCMotorista = new TelaCMotorista();
         
         public CLayout(){
             
-        }
-        
-        public TelaPrincipal getTelaPrincipal() {
-            return telaPrincipal;
         }
         
         public void iniciar(){
             panelCont.setLayout(c1);
             panelCont.add(telaPrincipal.getTelaPrincipal(),"1");
             panelCont.add(telaCVeiculo.getCadastroVeiculo(),"2");
+            panelCont.add(telaCCliente.getCadastroCliente(),"3");
+            panelCont.add(telaCMotorista.getCadastroMotorista(),"4");
+            System.out.println("teste2");
             telaPrincipal.setControlador(this);
             telaCVeiculo.setControlador(this);
+            telaCCliente.setControlador(this);
+            telaCMotorista.setControlador(this);
             frame.add(panelCont);
             frame.setResizable(false);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.pack();
             frame.setVisible(true);
-            //getC1().show(panelCont,"2");
             setLayout(1);
         }
 
@@ -57,8 +59,6 @@ public class CLayout {
         
         public void setLayout(int n){
             c1.show(panelCont,Integer.toString(n));
-            frame.revalidate();
-            frame.setVisible(true);
         }
      
 }
