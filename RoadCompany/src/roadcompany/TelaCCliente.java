@@ -47,7 +47,7 @@ public class TelaCCliente { //LAYOUT 2
          CadastroCliente.setLayout(null);
          CadastroCliente.setPreferredSize(new java.awt.Dimension(800, 600));
          CadastroCliente.setSize(800, 600);
-         cliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\CH1CO\\Desktop\\Git\\frameworkpds\\frameworkpds\\RoadCompany\\src\\img\\cliente.png"));
+         cliente.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("img/cliente.png")));
          CadastroCliente.add(cliente);
          cliente.setBounds(590, 400, 200, 189);
          CadastroCliente.add(btBack);

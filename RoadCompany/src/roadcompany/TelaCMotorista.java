@@ -43,7 +43,7 @@ public class TelaCMotorista { //LAYOUT 2
          CadastroMotorista.setLayout(null);
          CadastroMotorista.setPreferredSize(new java.awt.Dimension(800, 600));
          CadastroMotorista.setSize(800, 600);
-         motorista.setIcon(new javax.swing.ImageIcon("C:\\Users\\CH1CO\\Desktop\\Git\\frameworkpds\\frameworkpds\\RoadCompany\\src\\img\\motorista.png"));
+         motorista.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("img/motorista.png")));
          CadastroMotorista.add(motorista);
          motorista.setBounds(590, 400, 200, 184);
          CadastroMotorista.add(btBack);
