@@ -49,6 +49,7 @@ public class CLayout {
             frame.pack();
             frame.setVisible(true);
             setLayout(1);
+            
         }
 
         public CardLayout getC1() {

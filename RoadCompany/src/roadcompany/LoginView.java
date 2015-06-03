@@ -27,7 +27,6 @@ public class LoginView extends JFrame {
                 frame.setTitle("Logged In");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setLocationRelativeTo(null);
-                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }
         });
     }
@@ -96,9 +95,10 @@ class PassWordDialog extends JDialog {
                 if ("TrustIn".equals(jtfUsername.getText())
                         && "Shurima".equals(jpfPassword.getText())) {
                     RoadCompany init = new RoadCompany();
-                    init.iniciarPrograma();
-                    
                     setVisible(false);
+                    init.iniciarPrograma();
+                    dispose();
+                    
                 } else {
                     jlblStatus.setText("Invalid username or password");
                 }
