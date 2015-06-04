@@ -54,8 +54,8 @@ public final class TelaPrincipal extends JFrame{
     public void initTelaPrincipal() {
          this.setJMenuBar(menuBar);  
          this.add(busao);
-         busao.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("img/busao.jpg")));
-         busao.setBounds(646, 406, 154, 134);
+         busao.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("img/telaprincipal.jpg")));
+         busao.setBounds(0, -50, 800, 600);
          menuCadastrar.add(menuCVeiculo);
          menuCadastrar.add(menuCMotorista);
          menuCadastrar.add(menuCCliente);
