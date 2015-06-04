@@ -1,47 +1,51 @@
 package roadcompany;
 
-import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
-public class TelaPrincipal {  //LAYOUT 1
-    JPanel telaPrincipal = new JPanel();
+public final class TelaPrincipal extends JFrame{  
+    JPanel corpo = new JPanel();
     JLabel busao = new JLabel();
-    JButton btCVeiculo = new JButton("Cadastrar Veículo");
-    JButton btCCliente = new JButton("Cadastrar Cliente");
-    JButton btCMotorista = new JButton("Cadastrar Motorista");
-    CLayout controlador;
+    JMenuBar menuBar = new JMenuBar();
+    JMenu menuCadastrar = new JMenu("Cadastrar");  
+    JMenuItem menuCVeiculo = new JMenuItem("Veiculo");  
+    JMenuItem menuCMotorista = new JMenuItem("Motorista"); 
+    JMenuItem menuCCliente = new JMenuItem("Cliente"); 
     
     public TelaPrincipal(){
-            btCVeiculo.addActionListener( (ActionEvent e) -> { controlador.setLayout(2); } );//BOTÃO CADASTRAR VEÍCULO
-            btCCliente.addActionListener( (ActionEvent e) -> { controlador.setLayout(3); } );//BOTÃO CADASTRAR CLIENTE
-            btCMotorista.addActionListener( (ActionEvent e) -> { controlador.setLayout(4); } );//BOTÃO CADASTRAR MOTORISTA
-    }
-
-    public void setControlador(CLayout controlador) {
-        this.controlador = controlador;
-    }
-    
-    public JPanel getTelaPrincipal() {
+        super();  
+        this.setLayout(null);
+        this.setPreferredSize(new java.awt.Dimension(800, 600));
+        this.setSize(800, 600);
+        this.setResizable(false);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setTitle("Agreste Companhia Rodoviária");
+        this.setLocationRelativeTo(null);  
         initTelaPrincipal();
-        return telaPrincipal;
+        menuCVeiculo.addActionListener((ActionEvent e) -> { TelaCVeiculo.getInstance().setVisible(true); } );  
+        menuCMotorista.addActionListener( (ActionEvent e) -> { TelaCMotorista.getInstance().setVisible(true); } );
+        menuCCliente.addActionListener( (ActionEvent e) -> { TelaCCliente.getInstance().setVisible(true); } );
+        this.setVisible(true);
     }
     
     public void initTelaPrincipal() {
-         telaPrincipal.setLayout(null);
-         telaPrincipal.setPreferredSize(new java.awt.Dimension(800, 600));
-         telaPrincipal.setSize(800, 600);
+         this.setJMenuBar(menuBar);  
+         this.add(busao);
          busao.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("img/busao.jpg")));
-         telaPrincipal.add(busao);
-         busao.setBounds(646, 466, 154, 134);
-         telaPrincipal.add(btCVeiculo);
-         btCVeiculo.setBounds(50, 40, 150, 50);
-         telaPrincipal.add(btCMotorista);
-         btCMotorista.setBounds(50, 100, 150, 50);
-         telaPrincipal.add(btCCliente);
-         btCCliente.setBounds(50, 160, 150, 50);
-     }
+         busao.setBounds(646, 406, 154, 134);
+         menuCadastrar.add(menuCVeiculo);
+         menuCadastrar.add(menuCMotorista);
+         menuCadastrar.add(menuCCliente);
+         menuBar.add(menuCadastrar);  
+         menuCadastrar.setBounds(400, 300, 800, 10);         
+    }
 }
+
+

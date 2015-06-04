@@ -1,13 +1,28 @@
 
 package roadcompany;
 
+import static com.sun.glass.ui.Cursor.setVisible;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Zé
  */
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
 
 public class LoginView extends JFrame {
 
@@ -19,15 +34,12 @@ public class LoginView extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                JFrame frame = new LoginView();
-                frame.getContentPane().setBackground(Color.BLACK);
-                frame.setTitle("Logged In");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setLocationRelativeTo(null);
-            }
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new LoginView();
+            frame.getContentPane().setBackground(Color.BLACK);
+            frame.setTitle("Logged In");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setLocationRelativeTo(null);
         });
     }
 }
@@ -94,9 +106,8 @@ class PassWordDialog extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 if ("TrustIn".equals(jtfUsername.getText())
                         && "Shurima".equals(jpfPassword.getText())) {
-                    RoadCompany init = new RoadCompany();
+                    new TelaPrincipal();
                     setVisible(false);
-                    init.iniciarPrograma();
                     dispose();
                     
                 } else {
