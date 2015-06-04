@@ -77,6 +77,5 @@ public class TelaCCliente extends JFrame{
         txtTelefone.setBounds(80, 155, 150, 25);
         this.add(tTelefone);
         tTelefone.setBounds(200, 155, 150, 25);
-    }
-        
+    }     
 }

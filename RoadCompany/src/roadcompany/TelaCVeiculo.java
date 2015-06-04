@@ -49,7 +49,7 @@ public class TelaCVeiculo extends JFrame {
         initTelaCVeiculo();
 
         //FUNCOES DE BOTOES
-        btCancelar.addActionListener( (ActionEvent e) -> {  this.dispose();this.tela = null;} );
+        btCancelar.addActionListener( (ActionEvent e) -> {  this.dispose();} );
         btCadastrar.addActionListener( (ActionEvent e) -> { /*ADCIONAR COMANDOS PARA CADASTRRA AQUI*/ });
     }
     
