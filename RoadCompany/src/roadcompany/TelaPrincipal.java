@@ -22,9 +22,11 @@ public final class TelaPrincipal extends JFrame{
     JMenuItem menuCVeiculo = new JMenuItem("Veiculo");  
     JMenuItem menuCMotorista = new JMenuItem("Motorista"); 
     JMenuItem menuCCliente = new JMenuItem("Cliente"); 
+    JMenuItem menuCItinerario = new JMenuItem("Itinerario"); 
     JMenuItem menuBVeiculo = new JMenuItem("Veiculo");
     JMenuItem menuBMotorista = new JMenuItem("Motorista");
     JMenuItem menuBCliente = new JMenuItem("Cliente");
+    JMenuItem menuBItinerario = new JMenuItem("Itinerario");
     
     public TelaPrincipal(){
         super();  
@@ -45,9 +47,11 @@ public final class TelaPrincipal extends JFrame{
         menuCVeiculo.addActionListener((ActionEvent e) -> { TelaCVeiculo.getInstance().setVisible(true); } );  
         menuCMotorista.addActionListener( (ActionEvent e) -> { TelaCMotorista.getInstance().setVisible(true); } );
         menuCCliente.addActionListener( (ActionEvent e) -> { TelaCCliente.getInstance().setVisible(true); } );
+        menuCItinerario.addActionListener( (ActionEvent e) -> { TelaCItinerario.getInstance().setVisible(true); } );
         menuBVeiculo.addActionListener((ActionEvent e) -> { TelaBVeiculo.getInstance().setVisible(true); } );
         menuBMotorista.addActionListener( (ActionEvent e) -> { TelaBMotorista.getInstance().setVisible(true); } );
         menuBCliente.addActionListener( (ActionEvent e) -> { TelaBCliente.getInstance().setVisible(true);} ); 
+        menuBItinerario.addActionListener( (ActionEvent e) -> { TelaBItinerario.getInstance().setVisible(true); } );
         this.setVisible(true);
     }
     
@@ -59,9 +63,11 @@ public final class TelaPrincipal extends JFrame{
          menuCadastrar.add(menuCVeiculo);
          menuCadastrar.add(menuCMotorista);
          menuCadastrar.add(menuCCliente);
+         menuCadastrar.add(menuCItinerario);
          menuBuscar.add(menuBVeiculo);
          menuBuscar.add(menuBMotorista);
          menuBuscar.add(menuBCliente);
+         menuBuscar.add(menuBItinerario);
          menuBar.add(menuCadastrar);  
          menuBar.add(menuBuscar);
          menuCadastrar.setBounds(400, 300, 800, 10);         
