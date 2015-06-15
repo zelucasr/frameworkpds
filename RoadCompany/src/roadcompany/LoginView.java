@@ -106,8 +106,8 @@ class PassWordDialog extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 if ("TrustIn".equals(jtfUsername.getText())
                         && "Shurima".equals(jpfPassword.getText())) {
-                    new TelaPrincipal();
                     setVisible(false);
+                    new TelaPrincipal();
                     dispose();
                     
                 } else {
