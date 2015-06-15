@@ -1,14 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package roadcompany;
-
-/**
- *
- * @author CH1CO
- */
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,20 +17,12 @@ import javax.swing.WindowConstants;
 import java.awt.ItemSelectable;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import roadcompany.framework.TelaBaseCliente;
 
-public class TelaBCliente extends JFrame{
+public class TelaBCliente extends TelaBaseCliente{
     private static TelaBCliente tela;
-    JButton btCancelar = new JButton("Cancelar");
     JButton btBuscar = new JButton("Buscar");
     //Campos para preencher:
-    JLabel txtNome = new JLabel("Nome:");
-    JTextField tNome = new JTextField();
-    JLabel txtCpf = new JLabel("CPF:");
-    JTextField tCpf = new JTextField();
-    JLabel txtEmail = new JLabel("E-Mail:");
-    JTextField tEmail = new JTextField();
-    JLabel txtTel = new JLabel("Telefone:");
-    JTextField tTel = new JTextField();
     JLabel txtBuscar = new JLabel("Buscar por:");
     String[] Opcoes = {"Selecionar" ,"Nome", "CPF", "E-Mail", "Telefone"};
     JComboBox tBuscar = new JComboBox(Opcoes);
@@ -48,22 +30,14 @@ public class TelaBCliente extends JFrame{
     private TelaBCliente() {
         super();
         //CONFIGS DA TELA
-        this.setLayout(null);
-        this.setPreferredSize(new java.awt.Dimension(370, 220));
-        this.setSize(370, 220);
-        this.setResizable(false);
-        this.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);    
+          
         this.setTitle("Buscar Cliente");
-        this.setLocationRelativeTo(null);  
-        this.setAutoRequestFocus(true);
-        this.setAlwaysOnTop(true);
-        this.setVisible(true);
 
         //LAYOUT DA TELA
-        initTelaBCliente();
+        initb();
 
         //FUNCOES DE BOTOES
-        btCancelar.addActionListener( (ActionEvent e) -> {  this.dispose();} );
+        
         btBuscar.addActionListener( (ActionEvent e) -> { /*ADCIONAR COMANDOS PARA BUSCAR AQUI*/ });
     }
     
@@ -74,10 +48,8 @@ public class TelaBCliente extends JFrame{
         return tela;
     };    
     
-    private void initTelaBCliente(){
-        btCancelar.setBounds(190, 145, 120, 25);
-        this.add(btCancelar);
-        btBuscar.setBounds(60, 145, 120, 25);
+    private void initb(){
+        btBuscar.setBounds(115, 330, 120, 25);
         this.add(btBuscar);
         txtBuscar.setBounds(25, 25, 100, 25);
         this.add(txtBuscar);
@@ -85,25 +57,24 @@ public class TelaBCliente extends JFrame{
         tBuscar.addActionListener(tBuscar);
         
         this.add(txtNome);
-        txtNome.setBounds(25, 85, 150, 25);
+        txtNome.setBounds(70, 120, 150, 25);
         this.add(tNome);          
-        tNome.setBounds(135, 85, 200, 25);
+        tNome.setBounds(180, 120, 200, 25);
         
         this.add(txtCpf);
-        txtCpf.setBounds(25, 85, 150, 25);
+        txtCpf.setBounds(70, 120, 150, 25);
         this.add(tCpf);
-        tCpf.setBounds(135, 85, 200, 25);
+        tCpf.setBounds(180, 120, 200, 25);
         
         this.add(txtEmail);
-        txtEmail.setBounds(25, 85, 150, 25);
+        txtEmail.setBounds(70, 120, 150, 25);
         this.add(tEmail);
-        tEmail.setBounds(135, 85, 200, 25);
-        
+        tEmail.setBounds(180, 120, 200, 25);
         
         this.add(txtTel);
-        txtTel.setBounds(25, 85, 150, 25);
+        txtTel.setBounds(70, 120, 150, 25);
         this.add(tTel);
-        tTel.setBounds(135, 85, 200, 25);
+        tTel.setBounds(180, 120, 200, 25);
         
         setAllInvisible();
          

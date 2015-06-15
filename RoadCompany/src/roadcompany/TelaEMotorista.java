@@ -15,27 +15,19 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import roadcompany.framework.TelaBaseMotorista;
 
-public class TelaEMotorista extends JFrame{
+public class TelaEMotorista extends TelaBaseMotorista{
     private static TelaEMotorista tela;
-    JButton btVoltar = new JButton("Voltar");
     
-
     private TelaEMotorista(){
         super();
         //CONFIGS DA TELA
-        this.setLayout(null);
-        this.setPreferredSize(new java.awt.Dimension(1024, 768));
-        this.setSize(1024, 768);
-        this.setResizable(false);
-        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
-        this.setTitle("Agreste Road Company");
-        this.setLocationRelativeTo(null); 
-        this.setAlwaysOnTop(true);
-        this.setVisible(true);
+        btCancelar.setName("Voltar");
+        this.setTitle("Agreste Road Company - Motoristas");
         
         //LAYOUT
-        initTelaEMotorista();
+        inite();
         
         //CONFIG BOTOES
     }
@@ -47,8 +39,8 @@ public class TelaEMotorista extends JFrame{
         return tela;
     }
     
-    public void initTelaEMotorista(){
-        this.add(btVoltar);
-        btVoltar.setBounds(462, 693, 100, 25);
+    public void inite(){
+        this.add(btCancelar);
+        btCancelar.setBounds(462, 693, 100, 25);
     }
 }

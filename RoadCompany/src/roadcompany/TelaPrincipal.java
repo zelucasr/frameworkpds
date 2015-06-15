@@ -12,6 +12,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+import roadcompany.framework.GUIFacade;
 
 public final class TelaPrincipal extends JFrame{  
     JPanel corpo = new JPanel();
@@ -19,6 +20,7 @@ public final class TelaPrincipal extends JFrame{
     JMenuBar menuBar = new JMenuBar();
     JMenu menuCadastrar = new JMenu("Cadastrar");  
     JMenu menuBuscar = new JMenu ("Buscar");
+    JMenu menuExibir = new JMenu ("Exibir");
     JMenuItem menuCVeiculo = new JMenuItem("Veiculo");  
     JMenuItem menuCMotorista = new JMenuItem("Motorista"); 
     JMenuItem menuCCliente = new JMenuItem("Cliente"); 
@@ -26,10 +28,16 @@ public final class TelaPrincipal extends JFrame{
     JMenuItem menuBVeiculo = new JMenuItem("Veiculo");
     JMenuItem menuBMotorista = new JMenuItem("Motorista");
     JMenuItem menuBCliente = new JMenuItem("Cliente");
-    JMenuItem menuBItinerario = new JMenuItem("Itinerario");
+    JMenuItem menuBItinerario = new JMenuItem("Itinerario"); 
+    JMenuItem menuEVeiculo = new JMenuItem("Veiculos");
+    JMenuItem menuEMotorista = new JMenuItem("Motorista");
+    JMenuItem menuECliente = new JMenuItem("Cliente");
+    JMenuItem menuEItinerario = new JMenuItem("Itinerario");
     
-    public TelaPrincipal(){
-        super();  
+    GUIFacade guiFacade;
+    
+    public TelaPrincipal(GUIFacade guiFacade){
+        super();
         this.setLayout(null);
         this.setPreferredSize(new java.awt.Dimension(800, 600));
         this.setSize(800, 600);
@@ -44,14 +52,18 @@ public final class TelaPrincipal extends JFrame{
         this.setTitle("Agreste Road Company");
         this.setLocationRelativeTo(null);  
         initTelaPrincipal();
-        menuCVeiculo.addActionListener((ActionEvent e) -> { TelaCVeiculo.getInstance().setVisible(true); } );  
-        menuCMotorista.addActionListener( (ActionEvent e) -> { TelaCMotorista.getInstance().setVisible(true); } );
-        menuCCliente.addActionListener( (ActionEvent e) -> { TelaCCliente.getInstance().setVisible(true); } );
-        menuCItinerario.addActionListener( (ActionEvent e) -> { TelaCItinerario.getInstance().setVisible(true); } );
-        menuBVeiculo.addActionListener((ActionEvent e) -> { TelaBVeiculo.getInstance().setVisible(true); } );
-        menuBMotorista.addActionListener( (ActionEvent e) -> { TelaBMotorista.getInstance().setVisible(true); } );
-        menuBCliente.addActionListener( (ActionEvent e) -> { TelaBCliente.getInstance().setVisible(true);} ); 
-        menuBItinerario.addActionListener( (ActionEvent e) -> { TelaBItinerario.getInstance().setVisible(true); } );
+        menuCVeiculo.addActionListener((ActionEvent e) -> { guiFacade.showCVeiculo(); } );  
+        menuCMotorista.addActionListener( (ActionEvent e) -> { guiFacade.showCMotorista(); } );
+        menuCCliente.addActionListener( (ActionEvent e) -> { guiFacade.showCCliente(); } );
+        menuCItinerario.addActionListener( (ActionEvent e) -> { guiFacade.showCItinerario(); } );
+        menuBVeiculo.addActionListener((ActionEvent e) -> { guiFacade.showBVeiculo(); } );
+        menuBMotorista.addActionListener( (ActionEvent e) -> { guiFacade.showBMotorista(); } );
+        menuBCliente.addActionListener( (ActionEvent e) -> { guiFacade.showBCliente(); } ); 
+        menuBItinerario.addActionListener( (ActionEvent e) -> { guiFacade.showBItinerario(); } );
+        menuEVeiculo.addActionListener((ActionEvent e) -> { guiFacade.showEVeiculo(); } );
+        menuEMotorista.addActionListener( (ActionEvent e) -> { guiFacade.showEMotorista(); } );
+        menuECliente.addActionListener( (ActionEvent e) -> { guiFacade.showECliente(); } ); 
+        menuEItinerario.addActionListener( (ActionEvent e) -> { guiFacade.showEItinerario(); } );
         this.setVisible(true);
     }
     
@@ -68,9 +80,13 @@ public final class TelaPrincipal extends JFrame{
          menuBuscar.add(menuBMotorista);
          menuBuscar.add(menuBCliente);
          menuBuscar.add(menuBItinerario);
+         menuExibir.add(menuEVeiculo);
+         menuExibir.add(menuEMotorista);
+         menuExibir.add(menuECliente);
+         menuExibir.add(menuEItinerario);
          menuBar.add(menuCadastrar);  
-         menuBar.add(menuBuscar);
-         menuCadastrar.setBounds(400, 300, 800, 10);         
+         menuBar.add(menuBuscar);        
+         menuBar.add(menuExibir); 
     }
 }
 

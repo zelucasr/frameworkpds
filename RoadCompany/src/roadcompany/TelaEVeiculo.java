@@ -12,32 +12,43 @@ package roadcompany;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
+import roadcompany.framework.TelaBaseVeiculo;
 
-public class TelaEVeiculo extends JFrame{
+public class TelaEVeiculo extends TelaBaseVeiculo{
     private static TelaEVeiculo tela;
-    JButton btVoltar = new JButton("Voltar");
+    JButton btSalvar = new JButton("Salvar");
+    JScrollPane scrollPane;
+    JTextArea tArea = new JTextArea("");
     
-
     private TelaEVeiculo(){
         super();
         //CONFIGS DA TELA
-        this.setLayout(null);
-        this.setPreferredSize(new java.awt.Dimension(1024, 768));
-        this.setSize(1024, 768);
-        this.setResizable(false);
-        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
-        this.setTitle("Agreste Road Company");
-        this.setLocationRelativeTo(null); 
-        this.setAlwaysOnTop(true);
-        this.setVisible(true);
+        this.setTitle("Agreste Road Company - Frota");
         
         //LAYOUT
-        initTelaEVeiculo();
+        initb();
         
         //CONFIG BOTOES
+        btSalvar.addActionListener( (ActionEvent e) -> {
+            try {
+                new SalvaArquivo(tArea.getText());
+            }
+            catch (IOException ex) {
+                Logger.getLogger(TelaEVeiculo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        this.setVisible(true);
     }
     
     public static TelaEVeiculo getInstance(){
@@ -47,8 +58,24 @@ public class TelaEVeiculo extends JFrame{
         return tela;
     }
     
-    public void initTelaEVeiculo(){
-        this.add(btVoltar);
-        btVoltar.setBounds(462, 693, 100, 25);
+    public void setText(String str){
+        this.tArea.setText(str);
+    }
+    
+    @Override
+    public void inita(){
+        btCancelar.setBounds(255, 330, 120, 25);
+        this.add(btCancelar);
+    }
+    
+    public void initb(){
+        this.btCancelar.setName("Voltar");
+        btSalvar.setBounds(125, 330, 120, 25);
+        this.add(btSalvar);
+        Box box = Box.createHorizontalBox();
+        tArea.setEditable(false);
+        box.add(scrollPane = new JScrollPane(tArea));
+        box.setBounds(10, 10, 480, 310);
+        add(box);
     }
 }

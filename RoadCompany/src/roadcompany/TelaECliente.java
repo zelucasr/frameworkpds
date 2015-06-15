@@ -23,18 +23,10 @@ public class TelaECliente extends JFrame{
     private TelaECliente(){
         super();
         //CONFIGS DA TELA
-        this.setLayout(null);
-        this.setPreferredSize(new java.awt.Dimension(1024, 768));
-        this.setSize(1024, 768);
-        this.setResizable(false);
-        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
-        this.setTitle("Agreste Road Company");
-        this.setLocationRelativeTo(null); 
-        this.setAlwaysOnTop(true);
-        this.setVisible(true);
+        this.setTitle("Agreste Road Company - Clientes");
         
         //LAYOUT
-        initTelaECliente();
+        initb();
         
         //CONFIG BOTOES
     }
@@ -46,7 +38,7 @@ public class TelaECliente extends JFrame{
         return tela;
     }
 
-    public void initTelaECliente(){
+    public void initb(){
         this.add(btVoltar);
         btVoltar.setBounds(462, 693, 100, 25);
     }
