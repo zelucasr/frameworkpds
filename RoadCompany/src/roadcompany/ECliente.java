@@ -11,11 +11,11 @@ package roadcompany;
  */
 public class ECliente {
     private String nome;
-    private int CPF;
-    private int Telefone;
+    private String CPF;
+    private String Telefone;
     private String EMail;
 
-    public ECliente(String nome, int CPF, int Telefone, String EMail) {
+    public ECliente(String nome, String CPF, String EMail, String Telefone) {
         this.nome = nome;
         this.CPF = CPF;
         this.Telefone = Telefone;
@@ -37,19 +37,19 @@ public class ECliente {
         this.nome = nome;
     }
 
-    public int getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(int CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return Telefone;
     }
 
-    public void setTelefone(int Telefone) {
+    public void setTelefone(String Telefone) {
         this.Telefone = Telefone;
     }
 

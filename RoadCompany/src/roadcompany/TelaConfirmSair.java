@@ -57,7 +57,7 @@ public class TelaConfirmSair extends JDialog{
     
     public void initConfirmSair(){ //Tela de cadastro de Veículo
         this.add(txtNome);
-        txtNome.setBounds(45, 15, 150, 25);
+        txtNome.setBounds(25, 15, 150, 25);
         btSair.setBounds(40, 50, 100, 25);
         this.add(btSair); 
         btCancelar.setBounds(40, 85, 100, 25);

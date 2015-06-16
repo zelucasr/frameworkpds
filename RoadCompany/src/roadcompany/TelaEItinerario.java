@@ -62,11 +62,11 @@ public class TelaEItinerario extends TelaBaseItinerario{
     @Override
     public void inita(){
         btCancelar.setBounds(255, 330, 120, 25);
+        btCancelar.setText("Voltar");
         this.add(btCancelar);
     }
     
     public void initb(){
-        this.btCancelar.setName("Voltar");
         this.add(btSalvar);
         btSalvar.setBounds(125, 330, 120, 25);
         Box box = Box.createHorizontalBox();

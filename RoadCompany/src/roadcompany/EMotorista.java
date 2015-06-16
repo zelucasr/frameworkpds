@@ -11,11 +11,11 @@ package roadcompany;
  */
 public class EMotorista {
     private String Nome;
-    private int CPF;
-    private int Habilitacao;
-    private int Telefone;
+    private String CPF;
+    private String Habilitacao;
+    private String Telefone;
 
-    public EMotorista(String Nome, int CPF, int Habilitacao, int Telefone) {
+    public EMotorista(String Nome, String CPF, String Habilitacao, String Telefone) {
         this.Nome = Nome;
         this.CPF = CPF;
         this.Habilitacao = Habilitacao;
@@ -37,27 +37,27 @@ public class EMotorista {
         this.Nome = Nome;
     }
 
-    public int getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(int CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
-    public int getHabilitacao() {
+    public String getHabilitacao() {
         return Habilitacao;
     }
 
-    public void setHabilitacao(int Habilitacao) {
+    public void setHabilitacao(String Habilitacao) {
         this.Habilitacao = Habilitacao;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return Telefone;
     }
 
-    public void setTelefone(int Telefone) {
+    public void setTelefone(String Telefone) {
         this.Telefone = Telefone;
     }
     

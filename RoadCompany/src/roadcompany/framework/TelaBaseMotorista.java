@@ -34,11 +34,11 @@ public abstract class TelaBaseMotorista extends JFrame{
         this.setResizable(false);
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);  
-        init();
+        inita();
         btCancelar.addActionListener( (ActionEvent e) -> {  this.dispose(); } );
     }
     
-    public void init(){
+    public void inita(){
         btCancelar.setBounds(255, 330, 120, 25);
         this.add(btCancelar);
         

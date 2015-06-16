@@ -37,6 +37,8 @@ public class GUIFacadeRoadCompany implements GUIFacade{
         TelaBMotorista.getInstance().setVisible(true);
     };
     public void showECliente(){
+        String resultado = DAOCliente.getInstance().imprimirTudo();
+        TelaECliente.getInstance().setText(resultado);
         TelaECliente.getInstance().setVisible(true);
     };
     public void showEItinerario(){
@@ -50,6 +52,8 @@ public class GUIFacadeRoadCompany implements GUIFacade{
         TelaEVeiculo.getInstance().setVisible(true);
     };
     public void showEMotorista(){
-        
+        String resultado = DAOMotorista.getInstance().imprimirTudo();
+        TelaEMotorista.getInstance().setText(resultado);
+        TelaEMotorista.getInstance().setVisible(true);
     };
 }

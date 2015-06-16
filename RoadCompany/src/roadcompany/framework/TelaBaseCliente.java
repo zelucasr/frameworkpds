@@ -27,10 +27,10 @@ public abstract class TelaBaseCliente extends JFrame{
         this.setLocationRelativeTo(null);  
         this.setAutoRequestFocus(true);
         btCancelar.addActionListener( (ActionEvent e) -> {  this.dispose();} );
-        init();
+        inita();
     }
     
-    public void init(){
+    public void inita(){
         btCancelar.setBounds(260, 330, 120, 25);
         this.add(btCancelar);
         

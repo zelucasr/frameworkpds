@@ -28,7 +28,11 @@ public class TelaCMotorista extends TelaBaseMotorista{
         this.initc();
         
         //CONFIG BOTOES QUE VARIAM
-        btCadastrar.addActionListener( (ActionEvent e) -> { /*ADCIONAR COMANDOS PARA CADASTRRA AQUI*/ });
+        btCadastrar.addActionListener( (ActionEvent e) -> {
+        EMotorista m = new EMotorista(tNome.getText(), tCpf.getText(), tHabil.getText(), tTelefone.getText());
+        DAOMotorista.getInstance().cadastrarMotorista(m);
+        this.dispose();
+        });
     }
     
     public static TelaCMotorista getInstance(){

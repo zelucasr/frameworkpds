@@ -38,7 +38,31 @@ public class TelaBCliente extends TelaBaseCliente{
 
         //FUNCOES DE BOTOES
         
-        btBuscar.addActionListener( (ActionEvent e) -> { /*ADCIONAR COMANDOS PARA BUSCAR AQUI*/ });
+        btBuscar.addActionListener( (ActionEvent e) -> { 
+            Object campo = new Object();
+            String resultado = new String();
+            if((String)tBuscar.getSelectedItem() == "Nome"){
+                campo = (String)tNome.getText();
+                resultado = (String)DAOCliente.getInstance().buscarCliente(campo,(String)tBuscar.getSelectedItem());
+                TelaECliente.getInstance().setText(resultado);
+            }
+            if((String)tBuscar.getSelectedItem() == "CPF"){
+                campo = (String)tCpf.getText();
+                resultado = (String)DAOCliente.getInstance().buscarCliente(campo,(String)tBuscar.getSelectedItem());
+                TelaECliente.getInstance().setText(resultado);
+            }
+            if((String)tBuscar.getSelectedItem() == "E-Mail"){
+                campo = (String)tEmail.getText();
+                resultado = (String)DAOCliente.getInstance().buscarCliente(campo,(String)tBuscar.getSelectedItem());
+                TelaECliente.getInstance().setText(resultado);
+            }
+            if((String)tBuscar.getSelectedItem() == "Telefone"){
+                campo = (String)tTel.getText();
+                resultado = (String)DAOCliente.getInstance().buscarCliente(campo,(String)tBuscar.getSelectedItem());
+                TelaECliente.getInstance().setText(resultado);
+            }
+            TelaECliente.getInstance().setVisible(true);  
+        });
     }
     
     public static TelaBCliente getInstance(){
@@ -107,6 +131,7 @@ public class TelaBCliente extends TelaBaseCliente{
     }
     
     private void setNomeVisible(){
+        limpaCampos();
         txtNome.setVisible(true);
         tNome.setVisible(true);
         txtCpf.setVisible(false);
@@ -118,6 +143,7 @@ public class TelaBCliente extends TelaBaseCliente{
     }
     
     private void setCpfVisible(){
+        limpaCampos();
         txtNome.setVisible(false);
         tNome.setVisible(false);
         txtCpf.setVisible(true);
@@ -129,6 +155,7 @@ public class TelaBCliente extends TelaBaseCliente{
     }
     
     private void setHabilVisible(){
+        limpaCampos();
         txtNome.setVisible(false);
         tNome.setVisible(false);
         txtCpf.setVisible(false);
@@ -140,6 +167,7 @@ public class TelaBCliente extends TelaBaseCliente{
     }
     
     private void setTelVisible(){
+        limpaCampos();
         txtNome.setVisible(false);
         tNome.setVisible(false);
         txtCpf.setVisible(false);
@@ -151,6 +179,7 @@ public class TelaBCliente extends TelaBaseCliente{
     }
     
     private void setAllInvisible(){
+        limpaCampos();
         txtNome.setVisible(false);
         tNome.setVisible(false);
         txtCpf.setVisible(false);
@@ -159,5 +188,12 @@ public class TelaBCliente extends TelaBaseCliente{
         tEmail.setVisible(false);
         txtTel.setVisible(false);
         tTel.setVisible(false);
+    }
+    
+    private void limpaCampos(){
+        tNome.setText("");
+        tCpf.setText("");
+        tEmail.setText("");
+        tTel.setText("");
     }
 }

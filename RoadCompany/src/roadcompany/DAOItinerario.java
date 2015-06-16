@@ -70,7 +70,7 @@ public class DAOItinerario implements IDAOItinerario{
     public String buscarItinerario(Object campo, Object parametro){
         String resultado;
         ArrayList<Object> array = new ArrayList<>();
-        resultado = new String();
+        resultado = new String("");
         if(null != (String)parametro) switch ((String)parametro) {
             case "End. Saida":
                 for(EItinerario i:itinerarios){
@@ -108,6 +108,10 @@ public class DAOItinerario implements IDAOItinerario{
             EItinerario add = (EItinerario)v;
             resultado += add.print();
             resultado += "\n";
+        }
+        
+        if(!resultado.contains("End.")){
+            resultado += "Não foram encontrados itinerarios com esses parametros";
         }
         
         return resultado;

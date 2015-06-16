@@ -221,6 +221,7 @@ public class TelaBItinerario extends TelaBaseItinerario{
     }
     
     private void setAllInvisible(){
+        limpaCampos();
         txtSaida.setVisible(false);
         tSaida.setVisible(false);
         txtDestino.setVisible(false);

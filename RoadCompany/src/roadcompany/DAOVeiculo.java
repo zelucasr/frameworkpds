@@ -70,7 +70,7 @@ public class DAOVeiculo implements IDAOVeiculo{
     public Object buscarVeiculo(Object campo, Object parametro) {
         ArrayList<Object> array = new ArrayList<>();
         String resultado;
-        resultado = new String();
+        resultado = new String("");
         if(null != (String)parametro) switch ((String)parametro) {
             case "Modelo":
                 for(EVeiculo v:veiculos){
@@ -102,6 +102,10 @@ public class DAOVeiculo implements IDAOVeiculo{
             EVeiculo add = (EVeiculo)v;
             resultado += add.print();
             resultado += "\n";
+        }
+        
+        if(!resultado.contains("Modelo:")){
+            resultado += "Não foram encontrados veiculos com esses parametros";
         }
         
         return resultado;

@@ -69,7 +69,9 @@ public class TelaEVeiculo extends TelaBaseVeiculo{
     }
     
     public void initb(){
-        this.btCancelar.setName("Voltar");
+        btCancelar.setBounds(255, 330, 120, 25);
+        btCancelar.setText("Voltar");
+        this.add(btCancelar);
         btSalvar.setBounds(125, 330, 120, 25);
         this.add(btSalvar);
         Box box = Box.createHorizontalBox();

@@ -8,7 +8,15 @@ public class DAOCliente implements IDAOCliente{
     private static DAOCliente daoCliente;
     
     public DAOCliente(){
-        
+        this.clientes = new ArrayList<>();
+        ECliente teste1 = new ECliente("Mauricio", "10010010011", "maurissoca@gmsil.com", "99101010");
+        ECliente teste2 = new ECliente("Aline", "20020020022", "aline1@gmsil.com", "96202020");
+        ECliente teste3 = new ECliente("Eurico", "30030030033", "richguy@hotmsil.com", "88303030");
+        ECliente teste4 = new ECliente("Zé", "40040040044", "zer@bol.com", "91404040");
+        clientes.add(teste1);
+        clientes.add(teste2);
+        clientes.add(teste3);
+        clientes.add(teste4);
     }
     
     public void cadastrarCliente(Object cliente){
@@ -17,17 +25,16 @@ public class DAOCliente implements IDAOCliente{
         for(ECliente c:clientes){
             if(c.getCPF()==add.getCPF()){
                 alreadyIn = true;
-                atualizarCliente((ECliente)cliente, clientes.indexOf(c));
+                atualizarCliente(add, clientes.indexOf(c));
             }
         }
         if(!alreadyIn){
-            clientes.add(new ECliente(add));
+            clientes.add(add);
         }
     }
     
-    public void atualizarCliente(Object cliente, Object id) {
-        ECliente c = (ECliente)cliente;
-        //falta completar
+    public void atualizarCliente(ECliente cliente, int id) {
+        clientes.set(id, cliente);
     }
     
     public String imprimirTudo() {
@@ -40,9 +47,9 @@ public class DAOCliente implements IDAOCliente{
     }
     
     public Object buscarCliente(Object campo, Object parametro) {
-        ArrayList<Object> array = new ArrayList<>();
+        ArrayList<ECliente> array = new ArrayList<>();
         String resultado;
-        resultado = new String();
+        resultado = new String("");
         if(null != (String)parametro) switch ((String)parametro) {
             case "Nome":
                 for(ECliente c:clientes){
@@ -52,17 +59,17 @@ public class DAOCliente implements IDAOCliente{
                 }   break;
             case "CPF":
                 for(ECliente c:clientes){
-                    if(c.getCPF()==((int)campo)){
+                    if(c.getCPF().equals((String)campo)){
                         resultado = c.print();
                     }
             }   break;
             case "Telefone":
                 for(ECliente c:clientes){
-                    if(c.getTelefone()==((int)campo)){
+                    if(c.getTelefone().equals((String)campo)){
                         array.add(c);
                 }
             }   break;
-            case "EMail":
+            case "E-Mail":
                 for(ECliente c:clientes){
                     if(c.getEMail().equals((String)campo)){
                         array.add(c);
@@ -70,10 +77,13 @@ public class DAOCliente implements IDAOCliente{
             }   break;
         }
         
-        for(Object c:array){
-            ECliente add = (ECliente)c;
-            resultado += add.print();
+        for(ECliente c:array){
+            resultado += c.print();
             resultado += "\n";
+        }
+        
+        if(!resultado.contains("Nome:")){
+            resultado += "Não foram encontrados clientes com esses parametros";
         }
         
         return resultado;

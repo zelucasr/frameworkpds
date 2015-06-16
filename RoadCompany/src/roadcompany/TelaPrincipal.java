@@ -25,14 +25,14 @@ public final class TelaPrincipal extends JFrame{
     JMenuItem menuCMotorista = new JMenuItem("Motorista"); 
     JMenuItem menuCCliente = new JMenuItem("Cliente"); 
     JMenuItem menuCItinerario = new JMenuItem("Itinerario"); 
-    JMenuItem menuBVeiculo = new JMenuItem("Veiculo");
-    JMenuItem menuBMotorista = new JMenuItem("Motorista");
-    JMenuItem menuBCliente = new JMenuItem("Cliente");
-    JMenuItem menuBItinerario = new JMenuItem("Itinerario"); 
+    JMenuItem menuBVeiculo = new JMenuItem("Veiculos");
+    JMenuItem menuBMotorista = new JMenuItem("Motoristas");
+    JMenuItem menuBCliente = new JMenuItem("Clientes");
+    JMenuItem menuBItinerario = new JMenuItem("Itinerarios"); 
     JMenuItem menuEVeiculo = new JMenuItem("Veiculos");
-    JMenuItem menuEMotorista = new JMenuItem("Motorista");
-    JMenuItem menuECliente = new JMenuItem("Cliente");
-    JMenuItem menuEItinerario = new JMenuItem("Itinerario");
+    JMenuItem menuEMotorista = new JMenuItem("Motoristas");
+    JMenuItem menuECliente = new JMenuItem("Clientes");
+    JMenuItem menuEItinerario = new JMenuItem("Itinerarios");
     
     GUIFacade guiFacade;
     

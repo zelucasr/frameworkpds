@@ -47,7 +47,31 @@ public class TelaBMotorista extends TelaBaseMotorista{
         initb();
 
         //FUNCOES DE BOTOES
-        btBuscar.addActionListener( (ActionEvent e) -> { /*ADCIONAR COMANDOS PARA BUSCAR AQUI*/ });
+        btBuscar.addActionListener( (ActionEvent e) -> {
+            Object campo = new Object();
+            String resultado = new String();
+            if((String)tBuscar.getSelectedItem() == "Nome"){
+                campo = (String)tNome.getText();
+                resultado = (String)DAOMotorista.getInstance().buscarMotorista(campo,(String)tBuscar.getSelectedItem());
+                TelaEMotorista.getInstance().setText(resultado);
+            }
+            if((String)tBuscar.getSelectedItem() == "CPF"){
+                campo = (String)tCpf.getText();
+                resultado = (String)DAOMotorista.getInstance().buscarMotorista(campo,(String)tBuscar.getSelectedItem());
+                TelaEMotorista.getInstance().setText(resultado);
+            }
+            if((String)tBuscar.getSelectedItem() == "Habilitação"){
+                campo = (String)tHabil.getText();
+                resultado = (String)DAOMotorista.getInstance().buscarMotorista(campo,(String)tBuscar.getSelectedItem());
+                TelaEMotorista.getInstance().setText(resultado);
+            }
+            if((String)tBuscar.getSelectedItem() == "Telefone"){
+                campo = (String)tTelefone.getText();
+                resultado = (String)DAOMotorista.getInstance().buscarMotorista(campo,(String)tBuscar.getSelectedItem());
+                TelaEMotorista.getInstance().setText(resultado);
+            }
+            TelaEMotorista.getInstance().setVisible(true);
+        });
     }
     
     public static TelaBMotorista getInstance(){
@@ -110,6 +134,7 @@ public class TelaBMotorista extends TelaBaseMotorista{
     }
     
     private void setNomeVisible(){
+        limpaCampos();
         txtNome.setVisible(true);
         tNome.setVisible(true);
         txtCpf.setVisible(false);
@@ -121,6 +146,7 @@ public class TelaBMotorista extends TelaBaseMotorista{
     }
 
     private void setCpfVisible(){
+        limpaCampos();
         txtNome.setVisible(false);
         tNome.setVisible(false);
         txtCpf.setVisible(true);
@@ -132,6 +158,7 @@ public class TelaBMotorista extends TelaBaseMotorista{
     }
 
     private void setHabilVisible(){
+        limpaCampos();
         txtNome.setVisible(false);
         tNome.setVisible(false);
         txtCpf.setVisible(false);
@@ -143,6 +170,7 @@ public class TelaBMotorista extends TelaBaseMotorista{
     }
 
     private void setTelVisible(){
+        limpaCampos();
         txtNome.setVisible(false);
         tNome.setVisible(false);
         txtCpf.setVisible(false);
@@ -154,6 +182,7 @@ public class TelaBMotorista extends TelaBaseMotorista{
     }
 
     private void setAllInvisible(){
+        limpaCampos();
         txtNome.setVisible(false);
         tNome.setVisible(false);
         txtCpf.setVisible(false);
@@ -162,5 +191,12 @@ public class TelaBMotorista extends TelaBaseMotorista{
         tHabil.setVisible(false);
         txtTelefone.setVisible(false);
         tTelefone.setVisible(false);
+    }
+    
+    private void limpaCampos(){
+        tNome.setText("");
+        tCpf.setText("");
+        tHabil.setText("");
+        tTelefone.setText("");
     }
 }

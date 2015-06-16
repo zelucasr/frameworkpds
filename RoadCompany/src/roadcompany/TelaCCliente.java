@@ -25,7 +25,11 @@ public class TelaCCliente extends TelaBaseCliente{
         initb();
         
         //CONFIGS BOTOES
-        btCadastrar.addActionListener( (ActionEvent e) -> { /*ADCIONAR COMANDOS PARA CADASTRRA AQUI*/ });
+        btCadastrar.addActionListener( (ActionEvent e) -> { 
+            ECliente cliente = new ECliente(tNome.getText(), tCpf.getText(), tEmail.getText(), tTel.getText());
+            DAOCliente.getInstance().cadastrarCliente(cliente);
+            this.dispose();
+        });
     }
     
     public static TelaCCliente getInstance(){
